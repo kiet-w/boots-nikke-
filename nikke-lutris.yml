@@ -1,0 +1,22 @@
+name: NIKKE
+game_slug: nikke
+version: Windows
+slug: nikke-windows
+runner: wine
+
+script:
+  game:
+    exe: $GAMEDIR/drive_c/users/$USER/AppData/Local/nikke_Miniloader/nikke_Miniloader.exe
+    prefix: $GAMEDIR
+  installer:
+  - task:
+      name: create_prefix
+      prefix: $GAMEDIR
+  - task:
+      executable: /home/baudui/Downloads/nikkeminiloader.exe
+      name: wineexec
+      prefix: $GAMEDIR
+  wine:
+    version: GE-Proton11-1
+    dxvk: true
+    vkd3d: true
